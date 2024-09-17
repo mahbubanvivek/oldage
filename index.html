@@ -31,9 +31,61 @@
 
     <!-- Template Main CSS File -->
     <link href="assets/css/index.style.css" rel="stylesheet" />
+    <style>
+      /* Custom Modal styles */
+      .custom-modal {
+        position: fixed; /* Stay in place */
+        z-index: 100; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0); /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+        text-align: center;
+      }
+
+      .custom-modal-content {
+        background-color: #fefefe;
+        margin: 10% auto; /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 40%; /* Could be more or less, depending on screen size */
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+          0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      }
+
+      /* The Close Button */
+      .custom-close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .custom-close:hover,
+      .custom-close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    </style>
   </head>
 
   <body>
+    <!-- Modal -->
+    <div id="myCustomModal" class="custom-modal">
+      <div class="custom-modal-content">
+        <span class="custom-close">&times;</span>
+        <h3>私たちは、お年寄りの身の回りのお世話をします。</h3>
+        <img
+          src="assets/img/modal_pic.webp"
+          alt="Engaging Activity"
+          style="width: 300px; margin-top: 20px"
+        />
+      </div>
+    </div>
     <!-- ======= ヘッダー ======= -->
     <header id="header" class="fixed-top d-flex align-items-center">
       <div class="container d-flex align-items-center justify-content-between">
@@ -309,5 +361,22 @@
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
+    <script>
+      // Get the modal
+      var modal = document.getElementById("myCustomModal");
+
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("custom-close")[0];
+
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function () {
+        modal.style.display = "none";
+      };
+
+      // When the user clicks anywhere outside of the modal content, close it
+      window.onclick = function (event) {
+        modal.style.display = "none";
+      };
+    </script>
   </body>
 </html>
